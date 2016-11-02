@@ -23,17 +23,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         item?.title = "Link It!"
         // When someone clicks on name run this function
         item?.action = #selector(AppDelegate.linkIt)
+        
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Link It!", action: #selector(AppDelegate.linkIt), keyEquivalent: "L"))
+        menu.addItem(NSMenuItem(title: "Quit", action: #selector(AppDelegate.quit), keyEquivalent: "Q"))
+        
+        // assign into status bar
+        item?.menu = menu
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
-    // Will do all the work
+    // Creates the usable link option
     func linkIt() {
         print("Testing 123...")
     }
 
+    // Quits out of application
+    func quit(){
+        NSApplication.shared().terminate(self)
+    }
 
 }
 
