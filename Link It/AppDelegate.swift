@@ -12,13 +12,26 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 
+    var item : NSStatusItem? = nil
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        
+        // Create Status Bar Item
+        item = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+        // Title for status bar item
+        item?.title = "Link It!"
+        // When someone clicks on name run this function
+        item?.action = #selector(AppDelegate.linkIt)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+    }
+    
+    // Will do all the work
+    func linkIt() {
+        print("Testing 123...")
     }
 
 
